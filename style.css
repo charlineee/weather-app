@@ -1,0 +1,107 @@
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
+.container {
+  border: solid;
+  border-color: black;
+  margin: 5% auto;
+  padding: 3%;
+  max-width: 850px;
+  background: rgba(255, 255, 255, 0.8);
+  color: #4e5a65;
+}
+.search {
+  border: solid;
+  border-color: black;
+  margin: 2% auto;
+  position: relative;
+  max-width: 670px;
+  background: black;
+  overflow: hidden;
+}
+.btn btn-light {
+  position: relative;
+  right: 50%;
+}
+.form-control {
+  max-width: 450px;
+}
+.all-weather {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.current-weather {
+  border: solid;
+  border-color: black;
+  margin: 1% auto;
+  position: relative;
+  padding: 0;
+}
+.next-7 {
+  border: solid;
+  border-color: black;
+  margin: 1% auto;
+  position: relative;
+  padding: 0;
+}
+
+.temp {
+  font-size: 84px;
+  position: relative;
+  right: 25%;
+}
+
+ul {
+	list-style-type: none;
+}
+
+.unit {
+	position: relative;
+	bottom: 30%;
+	right: 70%;
+}
+
+a:link, a:hover, a:visited{
+	text-decoration: none;	
+	color: #4e5a65;
+}
+a:active{
+	font-weight: bold;
+}
+#date-time {
+  position: relative;
+  font-size: 24px;
+  text-indent: 20px;
+  top: 10px;
+}
+.location {
+  position: relative;
+  font-size: 36px;
+  font-weight: bold;
+  text-indent: 20px;
+  top: 5%;
+}
+
+.status {
+  font-size: 24px;
+  font-weight: bold;
+  text-indent: 20px;
+  position: relative;
+  top: 70%;
+}
+.hum-wind {
+  font-size: 16px;
+  position: relative;
+  top: 32%;
+  right: 25%;
+  text-align: right;
+}
+.days {
+
+}

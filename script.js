@@ -50,14 +50,11 @@ function showWeather(response) {
   let currentCity = document.querySelector("#def-location");
   let cityName = response.data.name;
   currentCity.innerHTML = cityName;
-  let humidity = response.data.main.humidity;
-  let data-wind = response.data.wind.speed;
-  let data-status = response.data.weather.0.description;
-  let wind = document.querySelector("#wind");
-  let hum = document.querySelector("#hum");
-  wind.innerHTML = data-wind;
-  hum.innerHTML = humidity;
+  //update humidity
 
+//update wind speed
+
+//update weather status
 
 }
 //get current location
@@ -101,14 +98,4 @@ function handleSubmit(event) {
 
 
 
-//if time < 18:00
-//rainy
-//windy
-//sunny
-//overcast
-//snowy
-//else if time is > 1800
-//stormy
-//clear
-//rain
-//snowy
+

@@ -14,14 +14,6 @@ function autoDate() {
 }
 autoDate();
 
-//convert c/f
-function cToF(c) {
-  return (c * 9) / 5 + 32;
-}
-function fToC(f) {
-  return ((f - 32) * 5) / 9;
-}
-
 
 //update temp with conversion
 
@@ -32,23 +24,38 @@ celsius.addEventListener("click", toggleC);
 fahrenheit.addEventListener("click", toggleF);
 
 function toggleC() {
+  event.preventDefault();
   let myTemp = document.querySelector("#cur-temp");
-  myTemp.innerHTML = "21°";
+  myTemp.innerHTML = `${celTemperature}°`;
+  fah.classList.remove("active");
+  cel.classList.add("active");
 }
 
 function toggleF() {
+  event.preventDefault();
   let myTemp = document.querySelector("#cur-temp");
-  myTemp.innerHTML = "70°";
+  let fahTemperature = Math.round((celTemperature * 9) / 5 + 32);
+  cel.classList.remove("active");
+  fah.classList.add("active");
+  myTemp.innerHTML = `${fahTemperature}°`;
+  
+}
+
+//convert c/f
+function cToF(c) {
+  return (c * 9) / 5 + 32;
+}
+function fToC(f) {
+  return ((f - 32) * 5) / 9;
 }
 
 
-
-//update temperature and city name
+//update weather to html
 function showWeather(response) {
 
   let updatedTemp = document.querySelector("#cur-temp");
-  let temperature = Math.round(response.data.main.temp);
-  updatedTemp.innerHTML = `${temperature}°`;
+  celTemperature = Math.round(response.data.main.temp);
+  updatedTemp.innerHTML = `${celTemperature}°`;
   let currentCity = document.querySelector("#def-location");
   let cityName = response.data.name;
   currentCity.innerHTML = cityName;
@@ -61,8 +68,6 @@ function showWeather(response) {
   let statusMain = response.data.weather[0].main;
   status.innerHTML = statusMain;
  
-
-//update weather status
 
 }
 //get current location
@@ -86,6 +91,7 @@ function showPosition(position) {
   axios.get(apiUrl).then(showWeather);
 }
 
+let celTemp = null;
 
 
 //search by name

@@ -71,7 +71,8 @@ a:link, a:hover, a:visited{
 	text-decoration: none;	
 	color: #4e5a65;
 }
-a:active{
+
+.active{
 	font-weight: bold;
 }
 #date-time {

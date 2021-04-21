@@ -50,9 +50,12 @@ function showWeather(response) {
   let currentCity = document.querySelector("#def-location");
   let cityName = response.data.name;
   currentCity.innerHTML = cityName;
-  //update humidity
-
-//update wind speed
+  let humidWindSpeed = document.querySelector("#humid-wind");
+  let humidity = response.data.main.humidity;
+  let wind = Math.round(response.data.wind.speed);
+  humidWindSpeed.innerHTML = `Humidity: ${humidity}%
+  Wind: ${wind} MPH`;
+  
 
 //update weather status
 

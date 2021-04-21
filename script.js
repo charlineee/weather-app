@@ -67,6 +67,13 @@ function showWeather(response) {
   let status = document.querySelector("#def-status");
   let statusMain = response.data.weather[0].main;
   status.innerHTML = statusMain;
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
+
  
 
 }

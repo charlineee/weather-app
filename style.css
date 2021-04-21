@@ -75,6 +75,12 @@ a:link, a:hover, a:visited{
 .active{
 	font-weight: bold;
 }
+
+#icon{
+	position: relative;
+	left: 30%;
+	top: 30%;
+}
 #date-time {
   position: relative;
   font-size: 24px;

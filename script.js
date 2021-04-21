@@ -42,8 +42,10 @@ function toggleF() {
 }
 
 
+
 //update temperature and city name
 function showWeather(response) {
+
   let updatedTemp = document.querySelector("#cur-temp");
   let temperature = Math.round(response.data.main.temp);
   updatedTemp.innerHTML = `${temperature}°`;
@@ -55,7 +57,10 @@ function showWeather(response) {
   let wind = Math.round(response.data.wind.speed);
   humidWindSpeed.innerHTML = `Humidity: ${humidity}%
   Wind: ${wind} MPH`;
-  
+  let status = document.querySelector("#def-status");
+  let statusMain = reponse.data.weather[0].description;
+  status.innerHTML = statusMain;
+ 
 
 //update weather status
 

@@ -58,7 +58,7 @@ function showWeather(response) {
   humidWindSpeed.innerHTML = `Humidity: ${humidity}%
   Wind: ${wind} MPH`;
   let status = document.querySelector("#def-status");
-  let statusMain = reponse.data.weather[0].description;
+  let statusMain = response.data.weather[0].main;
   status.innerHTML = statusMain;
  
 

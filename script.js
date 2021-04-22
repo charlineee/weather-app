@@ -1,4 +1,5 @@
 
+
 //format date
 function formatDate() {
   let now = new Date();
@@ -15,6 +16,7 @@ function autoDate() {
 autoDate();
 
 
+
 //update temp with conversion
 
 let fahrenheit = document.querySelector("#fah");
@@ -26,6 +28,8 @@ fahrenheit.addEventListener("click", toggleF);
 function toggleC() {
   event.preventDefault();
   let myTemp = document.querySelector("#cur-temp");
+  let celTemperature = Math.round(((fahTemp - 32) * 5) / 9);
+
   myTemp.innerHTML = `${celTemperature}°`;
   fah.classList.remove("active");
   cel.classList.add("active");
@@ -34,28 +38,20 @@ function toggleC() {
 function toggleF() {
   event.preventDefault();
   let myTemp = document.querySelector("#cur-temp");
-  let fahTemperature = Math.round((celTemperature * 9) / 5 + 32);
   cel.classList.remove("active");
   fah.classList.add("active");
-  myTemp.innerHTML = `${fahTemperature}°`;
+  myTemp.innerHTML = `${fahTemp}°`;
   
 }
 
-//convert c/f
-function cToF(c) {
-  return (c * 9) / 5 + 32;
-}
-function fToC(f) {
-  return ((f - 32) * 5) / 9;
-}
 
 
 //update weather to html
 function showWeather(response) {
 
   let updatedTemp = document.querySelector("#cur-temp");
-  celTemperature = Math.round(response.data.main.temp);
-  updatedTemp.innerHTML = `${celTemperature}°`;
+  fahTemp = Math.round(response.data.main.temp);
+  updatedTemp.innerHTML = `${fahTemp}°`;
   let currentCity = document.querySelector("#def-location");
   let cityName = response.data.name;
   currentCity.innerHTML = cityName;
@@ -73,10 +69,9 @@ function showWeather(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
-
- 
-
 }
+
+
 //get current location
 
 let getCurrentLoc = document.querySelector("#current-loc-button");
@@ -92,13 +87,14 @@ function showPosition(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
   let apiKey = "cb12dde16b4b5750157657ccf03c3f57";
-  let units = "metric";
+  let units = "imperial";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
 
   axios.get(apiUrl).then(showWeather);
 }
 
-let celTemp = null;
+let fahTemp = null;
+
 
 
 //search by name
@@ -111,11 +107,12 @@ function handleSubmit(event) {
   let input = document.querySelector("#search-bar");
   let usersCity = input.value.toLowerCase().trim();
   let apiKey = "cb12dde16b4b5750157657ccf03c3f57";
-  let units = "metric";
+  let units = "imperial";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${usersCity}&appid=${apiKey}&units=${units}`;
   
   axios.get(apiUrl).then(showWeather);
 }
+
 
 
 

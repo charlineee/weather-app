@@ -109,15 +109,18 @@ a:link, a:hover, a:visited{
   right: 35%;
   text-align: right;
 }
-.days {
 
-}
 
 .gitlink{
 	text-align: center;
 	color: #fff;
 }
 
-#7-day-elements{
-	display: none;
+#forecast {
+	position: relative;
+	left: 10px;
+}
+
+.next-7 {
+	padding: 5px;
 }

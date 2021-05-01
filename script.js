@@ -144,34 +144,32 @@ function handleSubmit(event) {
 }
 
 
-//get 7 day forecast
 function displayForecast(response) {
   let forecast = response.data.daily;
 
   let forecastElement = document.querySelector("#forecast");
-let forecastHTML = `<div class="row">`;
+
+  let forecastHTML = `<div class="row">`;
   forecast.forEach(function (forecastDay, index) {
     if (index < 7) {
       forecastHTML =
         forecastHTML +
-        ` <li>
-				<div class="col-2" id= "7-day-elements">
-				${formatDay(forecastDay.dt)}</strong> <img
+        `
+        <div class="weather-forecast-date"><strong>${formatDay(forecastDay.dt)}</strong><img
 					src="http://openweathermap.org/img/wn/${
 					forecastDay.weather[0].icon
 					}@2x.png"
 					alt=""
 					width="42"
-					/>
-				<span class="weather-forecast-temperature-max"> ${Math.round(
-				forecastDay.temp.max
-				)}° </span>
-				<span class="weather-forecast-temperature-min"> ${Math.round(
-				forecastDay.temp.min
-				)}° </span>
-        		
-      			</div>
-	  			</li>
+					/> ${Math.round(
+            forecastDay.temp.max
+          )}° </span> /
+          <span class="weather-forecast-temperature-min"> ${Math.round(
+            forecastDay.temp.min
+          )}° </span><br/>
+</div>
+               
+
   `;
     }
   });
